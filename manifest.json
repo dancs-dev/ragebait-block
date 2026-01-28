@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "Ragebait Block",
+  "description": "Remove ragebait from popular websites.",
+  "homepage_url": "https://dancs.dev",
+  "version": "1.0",
+  "icons": {
+    "48": "icons/icon.png",
+    "96": "icons/icon@2x.png"
+  },
+  "optional_permissions": ["trialML"],
+  "permissions": ["storage"],
+  "background": {
+    "scripts": ["scripts/background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.reddit.com/*",
+        "*://*.bbc.com/*",
+        "*://*.bbc.co.uk/*",
+        "*://*.youtube.com/*"
+      ],
+      "js": ["scripts/block.js"]
+    }
+  ],
+  "options_ui": {
+    "page": "pages/options.html",
+    "open_in_tab": false
+  }
+}
